@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar showCancelButton="always"></ion-searchbar>
+
+  <ion-grid class="section" *ngFor="let section of sections">
+    <ion-row class="header">
+      <ion-col class="title">
+        {{section.header.Stitle}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="notices" *ngFor="let noticia of section.noticias">
+      <ion-col class="noticia">
+        <ion-row class="header">
+          <ion-col class="title">
+            {{noticia.header.title}}
+          </ion-col>
+        </ion-row>
+        <ion-row class="body">
+          <ion-col [size]="noticia.body.imgSize && noticia.body.imgSize || noticiasConfig.imgSize">
+            <img [src]="noticia.body.img" alt="">
+          </ion-col>
+          <ion-col [size]="noticia.body.contentSize && noticia.body.contentSize || noticiasConfig.contentSize"
+            class="content">
+            {{noticia.body.content}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="Categorys" *ngFor="let Category of noticia.Categorys">
+            <ion-chip class="Category" color="warning">
+              <ion-label color="warning">{{Category}}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
