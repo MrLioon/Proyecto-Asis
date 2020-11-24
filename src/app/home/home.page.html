@@ -8,8 +8,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar showCancelButton="always"></ion-searchbar>
-
+  <ion-searchbar id="barraBusqueda" (keyup.enter)="buscar()"></ion-searchbar>
+  <app-busqueda></app-busqueda>
+  <app-detalle></app-detalle>
   <ion-grid class="section" *ngFor="let section of sections">
     <ion-row class="header">
       <ion-col class="title">
@@ -17,7 +18,7 @@
       </ion-col>
     </ion-row>
     <ion-row class="notices" *ngFor="let noticia of section.noticias">
-      <ion-col class="noticia">
+      <ion-col class="noticia" (click)="detalle(section.header.Stitle,noticia)">
         <ion-row class="header">
           <ion-col class="title">
             {{noticia.header.title}}
@@ -29,7 +30,9 @@
           </ion-col>
           <ion-col [size]="noticia.body.contentSize && noticia.body.contentSize || noticiasConfig.contentSize"
             class="content">
-            {{noticia.body.content}}
+            <p id="{{noticia.header.title}}">
+              {{noticia.body.preview}}
+            </p>
           </ion-col>
         </ion-row>
         <ion-row>

@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-
+import { DetalleComponent } from '../detalle/detalle.component';
+import {BusquedaComponent} from 'src/app/busqueda/busqueda.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, DetalleComponent,BusquedaComponent]
 })
 export class HomePageModule {}

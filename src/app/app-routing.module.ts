@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { DetalleComponent} from 'src/app/detalle/detalle.component';
+import { HomePage } from 'src/app/home/home.page';
 const routes: Routes = [
   {
     path: '',
